@@ -1,0 +1,1059 @@
+{
+  "contractName": "IFlashLoanReceiver",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "assets",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "amounts",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "premiums",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "address",
+          "name": "initiator",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "params",
+          "type": "bytes"
+        }
+      ],
+      "name": "executeOperation",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "ADDRESSES_PROVIDER",
+      "outputs": [
+        {
+          "internalType": "contract ILendingPoolAddressesProvider",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "LENDING_POOL",
+      "outputs": [
+        {
+          "internalType": "contract ILendingPool",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"ADDRESSES_PROVIDER\",\"outputs\":[{\"internalType\":\"contract ILendingPoolAddressesProvider\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"LENDING_POOL\",\"outputs\":[{\"internalType\":\"contract ILendingPool\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"assets\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[]\",\"name\":\"premiums\",\"type\":\"uint256[]\"},{\"internalType\":\"address\",\"name\":\"initiator\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"params\",\"type\":\"bytes\"}],\"name\":\"executeOperation\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Aave\",\"details\":\"implement this interface to develop a flashloan-compatible flashLoanReceiver contract*\",\"kind\":\"dev\",\"methods\":{},\"title\":\"IFlashLoanReceiver interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"Interface for the Aave fee IFlashLoanReceiver.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/alihamrani/Codes/github/alidevjimmy/flashloan-test/contracts/interfaces/IFlashLoanReceiver.sol\":\"IFlashLoanReceiver\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/alihamrani/Codes/github/alidevjimmy/flashloan-test/contracts/interfaces/IFlashLoanReceiver.sol\":{\"keccak256\":\"0xa2bc8f2db32997d23785a5045d2d677422e0ef5f039a081a3c8d60987c1e1c8f\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://f016d07accb904d07ce114a67b90905f7d33df66f91508897516f87c4809bef2\",\"dweb:/ipfs/QmVdnPbSnScrPzjSFdPM3ZYNkp18TRuVctC8T1G9P7FKHb\"]},\"/home/alihamrani/Codes/github/alidevjimmy/flashloan-test/contracts/interfaces/ILendingPool.sol\":{\"keccak256\":\"0x91c4f7b97ace0050fa54e29840d9be528c561662a12291bd47cde323b6e9eee8\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://d52fb4203c05ea473ce1df08133a14cba0113cca0021632961e992b3a424002d\",\"dweb:/ipfs/QmceVr155hmZZtfNcbJc4mYGvLnaR2RraCy1zYCWyuFaKN\"]},\"/home/alihamrani/Codes/github/alidevjimmy/flashloan-test/contracts/interfaces/ILendingPoolAddressesProvider.sol\":{\"keccak256\":\"0xcb0e2c4c19c0bde86907b6ab45b6a1db4932d3642fc51410d56c9411a65b9f1d\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://38d01c9e664c64d46a15bbbda2933b5fb877d33f6746d2db32563962beea9119\",\"dweb:/ipfs/QmajEmcQZz3E6GzmLpeGvnEswuwCjVYy8svqdx8bxi4PuG\"]},\"/home/alihamrani/Codes/github/alidevjimmy/flashloan-test/contracts/libraries/DataTypes.sol\":{\"keccak256\":\"0xb1d3ae94d3e4b3bf23b3394d820a3a2b5ba56fd5389f561f3fdd73ed1c60c391\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://47c11d578cc1e0df27e4e85cfe5831a48b78d6e939d34e17db4bc65a54c899fe\",\"dweb:/ipfs/QmYdYLkYFJe3psmQUH1S1uNhGE9xyxeDunuEW9gBPg9vDB\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity 0.6.12;\n\nimport {ILendingPoolAddressesProvider} from './ILendingPoolAddressesProvider.sol';\nimport {ILendingPool} from './ILendingPool.sol';\n\n/**\n * @title IFlashLoanReceiver interface\n * @notice Interface for the Aave fee IFlashLoanReceiver.\n * @author Aave\n * @dev implement this interface to develop a flashloan-compatible flashLoanReceiver contract\n **/\ninterface IFlashLoanReceiver {\n  function executeOperation(\n    address[] calldata assets,\n    uint256[] calldata amounts,\n    uint256[] calldata premiums,\n    address initiator,\n    bytes calldata params\n  ) external returns (bool);\n\n  function ADDRESSES_PROVIDER() external view returns (ILendingPoolAddressesProvider);\n\n  function LENDING_POOL() external view returns (ILendingPool);\n}\n",
+  "sourcePath": "/home/alihamrani/Codes/github/alidevjimmy/flashloan-test/contracts/interfaces/IFlashLoanReceiver.sol",
+  "ast": {
+    "absolutePath": "/home/alihamrani/Codes/github/alidevjimmy/flashloan-test/contracts/interfaces/IFlashLoanReceiver.sol",
+    "exportedSymbols": {
+      "IFlashLoanReceiver": [
+        342
+      ]
+    },
+    "id": 343,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 308,
+        "literals": [
+          "solidity",
+          "0.6",
+          ".12"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:23:3"
+      },
+      {
+        "absolutePath": "/home/alihamrani/Codes/github/alidevjimmy/flashloan-test/contracts/interfaces/ILendingPoolAddressesProvider.sol",
+        "file": "./ILendingPoolAddressesProvider.sol",
+        "id": 310,
+        "nodeType": "ImportDirective",
+        "scope": 343,
+        "sourceUnit": 869,
+        "src": "62:82:3",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 309,
+              "name": "ILendingPoolAddressesProvider",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "70:29:3",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/alihamrani/Codes/github/alidevjimmy/flashloan-test/contracts/interfaces/ILendingPool.sol",
+        "file": "./ILendingPool.sol",
+        "id": 312,
+        "nodeType": "ImportDirective",
+        "scope": 343,
+        "sourceUnit": 718,
+        "src": "145:48:3",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 311,
+              "name": "ILendingPool",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "153:12:3",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 313,
+          "nodeType": "StructuredDocumentation",
+          "src": "195:215:3",
+          "text": " @title IFlashLoanReceiver interface\n @notice Interface for the Aave fee IFlashLoanReceiver.\n @author Aave\n @dev implement this interface to develop a flashloan-compatible flashLoanReceiver contract*"
+        },
+        "fullyImplemented": false,
+        "id": 342,
+        "linearizedBaseContracts": [
+          342
+        ],
+        "name": "IFlashLoanReceiver",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "920f5c84",
+            "id": 331,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "executeOperation",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 327,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 316,
+                  "mutability": "mutable",
+                  "name": "assets",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 331,
+                  "src": "475:25:3",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_calldata_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 314,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "475:7:3",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 315,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "475:9:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 319,
+                  "mutability": "mutable",
+                  "name": "amounts",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 331,
+                  "src": "506:26:3",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_calldata_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 317,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "506:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 318,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "506:9:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 322,
+                  "mutability": "mutable",
+                  "name": "premiums",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 331,
+                  "src": "538:27:3",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_calldata_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 320,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "538:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 321,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "538:9:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 324,
+                  "mutability": "mutable",
+                  "name": "initiator",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 331,
+                  "src": "571:17:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 323,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "571:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 326,
+                  "mutability": "mutable",
+                  "name": "params",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 331,
+                  "src": "594:21:3",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 325,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "594:5:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "469:150:3"
+            },
+            "returnParameters": {
+              "id": 330,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 329,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 331,
+                  "src": "638:4:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 328,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "638:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "637:6:3"
+            },
+            "scope": 342,
+            "src": "444:200:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "0542975c",
+            "id": 336,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "ADDRESSES_PROVIDER",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 332,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "675:2:3"
+            },
+            "returnParameters": {
+              "id": 335,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 334,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 336,
+                  "src": "701:29:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ILendingPoolAddressesProvider_$868",
+                    "typeString": "contract ILendingPoolAddressesProvider"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 333,
+                    "name": "ILendingPoolAddressesProvider",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 868,
+                    "src": "701:29:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ILendingPoolAddressesProvider_$868",
+                      "typeString": "contract ILendingPoolAddressesProvider"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "700:31:3"
+            },
+            "scope": 342,
+            "src": "648:84:3",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "b4dcfc77",
+            "id": 341,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "LENDING_POOL",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 337,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "757:2:3"
+            },
+            "returnParameters": {
+              "id": 340,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 339,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 341,
+                  "src": "783:12:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ILendingPool_$717",
+                    "typeString": "contract ILendingPool"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 338,
+                    "name": "ILendingPool",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 717,
+                    "src": "783:12:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ILendingPool_$717",
+                      "typeString": "contract ILendingPool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "782:14:3"
+            },
+            "scope": 342,
+            "src": "736:61:3",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 343,
+        "src": "411:388:3"
+      }
+    ],
+    "src": "37:763:3"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/home/alihamrani/Codes/github/alidevjimmy/flashloan-test/contracts/interfaces/IFlashLoanReceiver.sol",
+      "exportedSymbols": {
+        "IFlashLoanReceiver": [
+          342
+        ]
+      },
+      "license": "agpl-3.0"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "0.6",
+            ".12"
+          ]
+        },
+        "id": 308,
+        "name": "PragmaDirective",
+        "src": "37:23:3"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 869,
+          "absolutePath": "/home/alihamrani/Codes/github/alidevjimmy/flashloan-test/contracts/interfaces/ILendingPoolAddressesProvider.sol",
+          "file": "./ILendingPoolAddressesProvider.sol",
+          "scope": 343,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "argumentTypes": null,
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "referencedDeclaration": null,
+                  "type": null,
+                  "value": "ILendingPoolAddressesProvider"
+                },
+                "id": 309,
+                "name": "Identifier",
+                "src": "70:29:3"
+              },
+              "local": null
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 310,
+        "name": "ImportDirective",
+        "src": "62:82:3"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 718,
+          "absolutePath": "/home/alihamrani/Codes/github/alidevjimmy/flashloan-test/contracts/interfaces/ILendingPool.sol",
+          "file": "./ILendingPool.sol",
+          "scope": 343,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "argumentTypes": null,
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "referencedDeclaration": null,
+                  "type": null,
+                  "value": "ILendingPool"
+                },
+                "id": 311,
+                "name": "Identifier",
+                "src": "153:12:3"
+              },
+              "local": null
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 312,
+        "name": "ImportDirective",
+        "src": "145:48:3"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            342
+          ],
+          "name": "IFlashLoanReceiver",
+          "scope": 343
+        },
+        "children": [
+          {
+            "attributes": {
+              "text": " @title IFlashLoanReceiver interface\n @notice Interface for the Aave fee IFlashLoanReceiver.\n @author Aave\n @dev implement this interface to develop a flashloan-compatible flashLoanReceiver contract*"
+            },
+            "id": 313,
+            "name": "StructuredDocumentation",
+            "src": "195:215:3"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "documentation": null,
+              "functionSelector": "920f5c84",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "executeOperation",
+              "overrides": null,
+              "scope": 342,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "assets",
+                      "overrides": null,
+                      "scope": 331,
+                      "stateVariable": false,
+                      "storageLocation": "calldata",
+                      "type": "address[]",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "length": null,
+                          "type": "address[]"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "address",
+                              "stateMutability": "nonpayable",
+                              "type": "address"
+                            },
+                            "id": 314,
+                            "name": "ElementaryTypeName",
+                            "src": "475:7:3"
+                          }
+                        ],
+                        "id": 315,
+                        "name": "ArrayTypeName",
+                        "src": "475:9:3"
+                      }
+                    ],
+                    "id": 316,
+                    "name": "VariableDeclaration",
+                    "src": "475:25:3"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "amounts",
+                      "overrides": null,
+                      "scope": 331,
+                      "stateVariable": false,
+                      "storageLocation": "calldata",
+                      "type": "uint256[]",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "length": null,
+                          "type": "uint256[]"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint256",
+                              "type": "uint256"
+                            },
+                            "id": 317,
+                            "name": "ElementaryTypeName",
+                            "src": "506:7:3"
+                          }
+                        ],
+                        "id": 318,
+                        "name": "ArrayTypeName",
+                        "src": "506:9:3"
+                      }
+                    ],
+                    "id": 319,
+                    "name": "VariableDeclaration",
+                    "src": "506:26:3"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "premiums",
+                      "overrides": null,
+                      "scope": 331,
+                      "stateVariable": false,
+                      "storageLocation": "calldata",
+                      "type": "uint256[]",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "length": null,
+                          "type": "uint256[]"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint256",
+                              "type": "uint256"
+                            },
+                            "id": 320,
+                            "name": "ElementaryTypeName",
+                            "src": "538:7:3"
+                          }
+                        ],
+                        "id": 321,
+                        "name": "ArrayTypeName",
+                        "src": "538:9:3"
+                      }
+                    ],
+                    "id": 322,
+                    "name": "VariableDeclaration",
+                    "src": "538:27:3"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "initiator",
+                      "overrides": null,
+                      "scope": 331,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 323,
+                        "name": "ElementaryTypeName",
+                        "src": "571:7:3"
+                      }
+                    ],
+                    "id": 324,
+                    "name": "VariableDeclaration",
+                    "src": "571:17:3"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "params",
+                      "overrides": null,
+                      "scope": 331,
+                      "stateVariable": false,
+                      "storageLocation": "calldata",
+                      "type": "bytes",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes"
+                        },
+                        "id": 325,
+                        "name": "ElementaryTypeName",
+                        "src": "594:5:3"
+                      }
+                    ],
+                    "id": 326,
+                    "name": "VariableDeclaration",
+                    "src": "594:21:3"
+                  }
+                ],
+                "id": 327,
+                "name": "ParameterList",
+                "src": "469:150:3"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 331,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 328,
+                        "name": "ElementaryTypeName",
+                        "src": "638:4:3"
+                      }
+                    ],
+                    "id": 329,
+                    "name": "VariableDeclaration",
+                    "src": "638:4:3"
+                  }
+                ],
+                "id": 330,
+                "name": "ParameterList",
+                "src": "637:6:3"
+              }
+            ],
+            "id": 331,
+            "name": "FunctionDefinition",
+            "src": "444:200:3"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "documentation": null,
+              "functionSelector": "0542975c",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "ADDRESSES_PROVIDER",
+              "overrides": null,
+              "scope": 342,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 332,
+                "name": "ParameterList",
+                "src": "675:2:3"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 336,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract ILendingPoolAddressesProvider",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "ILendingPoolAddressesProvider",
+                          "referencedDeclaration": 868,
+                          "type": "contract ILendingPoolAddressesProvider"
+                        },
+                        "id": 333,
+                        "name": "UserDefinedTypeName",
+                        "src": "701:29:3"
+                      }
+                    ],
+                    "id": 334,
+                    "name": "VariableDeclaration",
+                    "src": "701:29:3"
+                  }
+                ],
+                "id": 335,
+                "name": "ParameterList",
+                "src": "700:31:3"
+              }
+            ],
+            "id": 336,
+            "name": "FunctionDefinition",
+            "src": "648:84:3"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "documentation": null,
+              "functionSelector": "b4dcfc77",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "LENDING_POOL",
+              "overrides": null,
+              "scope": 342,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 337,
+                "name": "ParameterList",
+                "src": "757:2:3"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 341,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract ILendingPool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "ILendingPool",
+                          "referencedDeclaration": 717,
+                          "type": "contract ILendingPool"
+                        },
+                        "id": 338,
+                        "name": "UserDefinedTypeName",
+                        "src": "783:12:3"
+                      }
+                    ],
+                    "id": 339,
+                    "name": "VariableDeclaration",
+                    "src": "783:12:3"
+                  }
+                ],
+                "id": 340,
+                "name": "ParameterList",
+                "src": "782:14:3"
+              }
+            ],
+            "id": 341,
+            "name": "FunctionDefinition",
+            "src": "736:61:3"
+          }
+        ],
+        "id": 342,
+        "name": "ContractDefinition",
+        "src": "411:388:3"
+      }
+    ],
+    "id": 343,
+    "name": "SourceUnit",
+    "src": "37:763:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.3",
+  "updatedAt": "2021-02-16T08:25:49.145Z",
+  "devdoc": {
+    "author": "Aave",
+    "details": "implement this interface to develop a flashloan-compatible flashLoanReceiver contract*",
+    "kind": "dev",
+    "methods": {},
+    "title": "IFlashLoanReceiver interface",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "notice": "Interface for the Aave fee IFlashLoanReceiver.",
+    "version": 1
+  }
+}
