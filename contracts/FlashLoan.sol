@@ -4,12 +4,27 @@ import {FlashLoanReceiverBase} from "./FlashLoanReceiverBase.sol";
 import {SafeMath} from "@openzeppelin/contracts/math/SafeMath.sol";
 import {IERC20} from '@openzeppelin/contracts/token/ERC20/IERC20.sol';
 import {ILendingPoolAddressesProvider} from './interfaces/ILendingPoolAddressesProvider.sol';
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import {UniswapV2Router02} from "@uniswap/v2-periphery/contracts/UniswapV2Router02.sol";
+import {IUniswapV2Router02} from "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 
 
-contract FlashLoan is FlashLoanReceiverBase{
-    using SafeMath for uint256;
+contract FlashLoan is FlashLoanReceiverBase, Ownable{
+    
+    using SafeMath for uint256; 
+    ILendingPoolAddressesProvider provider;
+    address lendingPoolAddr;
+    
+    address kovanAave = 0xB597cd8D3217ea6477232F9217fa70837ff667Af;
+    address kovanDai = 0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD;
+    address kovanLink = 0xAD5ce863aE3E4E9394Ab43d4ba0D80f419F61789;
+    address kovenWETH = 0xd0A1E359811322d97991E03f863a0C30C2cF029C;
+    address uniFactory = 0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f;
 
-    constructor(ILendingPoolAddressesProvider _lendingProvider) FlashLoanReceiverBase(_lendingProvider) public {}
+    constructor(ILendingPoolAddressesProvider _lendingProvider) FlashLoanReceiverBase(_lendingProvider) public {
+        provider = _lendingProvider;
+        lendingPoolAddr = provider.getLendingPool();
+    }
 
     function _flashLoan(
         address[] memory _assets,
@@ -39,21 +54,8 @@ contract FlashLoan is FlashLoanReceiverBase{
 
 
     // flash loan for multiple assets
-    function flashLoan(address[] memory _assets,uint256[] memory _amounts) public {
+    function flashLoan(address[] memory _assets,uint256[] memory _amounts) public onlyOwner{
         _flashLoan(_assets, _amounts);
-    }
-
-    function flashLoan(address _asset) public {
-        // bytes memory data = "";
-        uint amount = 1 ether;
-        
-        address[] memory assets = new address[](1);
-        assets[1] = _asset;
-
-        uint256[] memory amounts = new uint256[](1);
-        amounts[1] = amount;
-
-        _flashLoan(assets, amounts);
     }
 
     function executeOperation(
@@ -64,7 +66,7 @@ contract FlashLoan is FlashLoanReceiverBase{
         bytes calldata _params
     ) external override returns(bool)
     {
-        
+
 
         for (uint i = 0 ; i < _assets.length; i++) {
             uint256 amountOwing = _amounts[i].add(_premiums[i]);
@@ -73,4 +75,25 @@ contract FlashLoan is FlashLoanReceiverBase{
 
         return true;
     }
+
+    function withdraw() public onlyOwner {
+
+        msg.sender.call{value: address(this).balance}("");
+
+        IERC20(kovanAave).transfer(msg.sender, IERC20(kovanAave).balanceOf(address(this)));
+        IERC20(kovanDai).transfer(msg.sender, IERC20(kovanDai).balanceOf(address(this)));
+        IERC20(kovanLink).transfer(msg.sender, IERC20(kovanLink).balanceOf(address(this)));
+    }
+
+
+    function uniSwapEthToToken(uint _amount) public payable{
+        address[] memory path = new address[](2);
+        path[0] = address(kovenWETH);
+        path[1] = address(kovanDai);
+        IUniswapV2Router02 router= new UniswapV2Router02(uniFactory,kovenWETH);
+        router.swapETHForExactTokens(_amount, path, msg.sender, block.timestamp);
+    }
+
+
+
 }
